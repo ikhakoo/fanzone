@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     end
   end
   resources :sessions,      only: [:new, :create, :destroy]
-  resources :tweets,        only: [:index, :create, :destroy]
+  resources :tweets,        only: [:index, :create, :destroy] do
+    resources :comments,    only: [:new, :create]
+  end
   resources :relationships, only: [:create, :destroy]
   resources :news,          only: [:index]
   resources :videos,        only: [:index]

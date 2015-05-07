@@ -8,4 +8,9 @@ module ApplicationHelper
       "#{page_title} | #{base_title}"
     end
   end
+
+  def indented_render(num, *args)
+  	render(*args).gsub(/^/, "\t" * num)
+	end
+	
 end
