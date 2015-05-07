@@ -21,3 +21,15 @@
 
 en:
   hello: "Hello world"
+
+en:
+  activerecord:
+    attributes:
+      user:
+        slug: "Username"
+    errors:
+      models:
+        user:
+          attributes:
+            slug:
+              blank: "is required"
