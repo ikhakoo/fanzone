@@ -12,7 +12,9 @@
               <div class="navbar-collapse collapse" id="navbar-main">
                   <ul class="nav navbar-nav">
                       <li><%= link_to_unless_current('Home', root_path) {  link_to('Home', root_path, class: 'active') } %></li>
-                     <li><%= link_to_unless_current('Products', root_path) {  link_to('Products', root_path, class: 'active') } %></li>
+                     <li><%= link_to_unless_current('News Feed', tweets_path) {  link_to('News', tweets_path, class: 'active') } %></li>
+                     <li><%= link_to_unless_current('News', news_index_path) {  link_to('News', news_index_path, class: 'active') } %></li>
+                     <li><%= link_to_unless_current('Videos', videos_path) {  link_to('Videos', videos_path, class: 'active') } %></li>
                   </ul>
                   <% if signed_in? %>
                   <ul class="nav navbar-nav navbar-right">

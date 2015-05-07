@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :sessions,      only: [:new, :create, :destroy]
   resources :tweets,        only: [:index, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
-  resources :news,          only: [:index, :test]
+  resources :news,          only: [:index]
+  resources :videos,        only: [:index]
 
   get    'signup'   => 'users#new'
   get    'signin'   => 'sessions#new'
