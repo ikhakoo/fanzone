@@ -29,6 +29,9 @@ gem 'bcrypt'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
+gem 'bootstrap-sass'
+gem 'font-awesome-sass', '~> 4.3'
+
 gem 'pg'
 gem "activerecord-postgresql-adapter"
 
