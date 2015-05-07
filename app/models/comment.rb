@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-	belongs_to :parent
+	acts_as_tree
 	belongs_to :user
 	belongs_to :tweet
 	belongs_to :video
