@@ -219,6 +219,7 @@ GEM
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
     slop (3.6.0)
+    spring (1.3.5)
     sprockets (3.0.3)
       rack (~> 1.0)
     sprockets-rails (2.2.4)
@@ -232,6 +233,8 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
+    turbolinks (2.5.3)
+      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
@@ -274,7 +277,9 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   simplecov
   slim
+  spring
   terminal-notifier-guard
+  turbolinks
   uglifier (>= 1.3.0)
   will_paginate
   will_paginate-bootstrap
