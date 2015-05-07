@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: [:create, :destroy]
   resources :news,          only: [:index]
-  resources :videos,        only: [:index]
+  resources :videos,        only: [:index, :new, :create]
 
   get    'signup'   => 'users#new'
   get    'signin'   => 'sessions#new'
