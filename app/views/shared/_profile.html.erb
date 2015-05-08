@@ -1,10 +1,12 @@
 <div class="profile clearfix">
 	<%= link_to gravatar_for(@user, size: 52), @user %>
 		<div>
-			<%= link_to @user.name, @user %>
+			<%= link_to "@", @user %><%= link_to @user.slug, @user %>
+		<div>
+			Name: <%= @user.name %>
 		</div>
 		<div>
-			<%= @user.email %>
+			Email: <%= @user.email %>
 		</div>
 		<div>
 			Join Date: <%= @user.created_at.strftime("%B %d, %Y") %>
