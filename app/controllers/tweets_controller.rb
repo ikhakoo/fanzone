@@ -2,11 +2,11 @@ class TweetsController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user, only: [:destroy]
 
-  def index
-    @tweet = current_user.tweets.build if signed_in?
-    @feed_items = Tweet.all.paginate(page: params[:page])
-    render 'static_pages/home'
-  end
+  # def index
+  #   @tweet = current_user.tweets.build if signed_in?
+  #   @feed_items = Tweet.all.paginate(page: params[:page])
+  #   render 'static_pages/home'
+  # end
 
   def create
     @tweet = current_user.tweets.build(tweet_params)
@@ -22,6 +22,16 @@ class TweetsController < ApplicationController
   def destroy
     @tweet.destroy
     redirect_to root_url
+  end
+
+  def index
+    if signed_in?
+      @tweet = current_user.tweets.build
+      @feed_items = Tweet.all.paginate(page: params[:page])
+      render 'static_pages/home'
+    elsif params[:tag]
+      @tweets = Tweet.tagged_with(params[:tag])
+    end
   end
 
   private

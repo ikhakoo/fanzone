@@ -1,5 +1,9 @@
 module TweetsHelper
 
+	def tag_links(tags)
+  	tags.split(",").map{|tag| link_to tag.strip, tag_path(tag.strip) }.join(", ") 
+	end
+
   def wrap(content)
     sanitize(raw(content.split.map { |s| wrap_long_string(s) }.join(' ')))
   end
