@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507225609) do
+ActiveRecord::Schema.define(version: 20150508031104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,24 @@ ActiveRecord::Schema.define(version: 20150507225609) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tweet_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  add_index "taggings", ["tweet_id"], name: "index_taggings_on_tweet_id", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "tweet_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tweets", force: :cascade do |t|
     t.string   "content"
     t.integer  "user_id"
@@ -68,4 +86,6 @@ ActiveRecord::Schema.define(version: 20150507225609) do
     t.integer  "user_id"
   end
 
+  add_foreign_key "taggings", "tags"
+  add_foreign_key "taggings", "tweets"
 end
