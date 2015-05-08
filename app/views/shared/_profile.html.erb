@@ -3,10 +3,7 @@
 		<div>
 			<%= link_to "@", @user %><%= link_to @user.slug, @user %>
 		<div>
-			Name: <%= @user.name %>
-		</div>
-		<div>
-			Email: <%= @user.email %>
+			<%= @user.name %>
 		</div>
 		<div>
 			Join Date: <%= @user.created_at.strftime("%B %d, %Y") %>
