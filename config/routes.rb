@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :tweets,        only: [:index, :create, :destroy] do
     resources :comments,    only: [:new, :create]
   end
+  resources :comments,      only: [:new, :create]
   resources :relationships, only: [:create, :destroy]
   resources :news,          only: [:index]
   resources :videos,        only: [:index, :new, :create]
