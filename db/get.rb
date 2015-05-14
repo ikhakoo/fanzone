@@ -1,3 +1,9 @@
+require "json"
+require "open-uri"
+require "curb"
+require "nokogiri"
+require "pry"
+
 #URL = "http://cdn.espn.go.com/core/nba/story/_/id/12796031/kevin-durant-lauds-oklahoma-city-thunder-billy-donovan-hire?render=true&partial=article&xhr=1&device=desktop"
 URL = "http://espn.go.com/nba/story/_/id/12872739/new-orleans-pelicans-fire-head-coach-monty-williams"
 
@@ -16,37 +22,15 @@ def get_page_json(article)
 	OpenStruct.new(json)
 end
 
+
+
+#resp = Curl::Easy.perform(URL) do |curl| 
+#  curl.headers["User-Agent"] = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36" 
+#  curl.verbose = true
+#end
+
+#json = JSON.parse(resp.body)
+
 binding.pry
 
-def seed_users_and_microposts
-  99.times do |n|
-    name  = Faker::Name.name
-    email = "example-#{n+1}@faker-game.com"
-    password = "password"
-    slug = Faker::Internet.slug
-    User.create!(name: name,
-  	      email: email,
-  	      password:              password,
-  	      password_confirmation: password,
-  	      slug: slug
-  	     )
-    print "|"
-  end
-  
-  # Microposts
-  users = User.order(:created_at).take(6)
-  50.times do
-    content = Faker::Lorem.sentence(5)
-    users.each { |user| user.tweets.create!(content: content) }
-    print "|"
-  end
-  
-  # Following relationships
-  users = User.all
-  user  = users.first
-  following = users[2..50]
-  followers = users[3..40]
-  following.each { |followed| user.follow!(followed) }
-  followers.each { |follower| follower.follow!(user) }
-end
-
+puts "yolo"
