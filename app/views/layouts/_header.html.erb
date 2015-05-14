@@ -22,20 +22,6 @@
                   <li><%= link_to_unless_current('Profile', edit_user_path(current_user)) {  link_to('Profile', edit_user_path(current_user), class: 'active' ) } %></li>
                   </ul>
                     <p class="navbar-text navbar-right">Signed in as <%= current_user.name %> <%= link_to "Log out", session_path("current"), :method => :delete %></p>
-                  <% else %>
-                    <%= form_tag "/sessions", method: "POST", class: "navbar-form navbar-right" do |f| %>
-                        <div class="form-group">
-                            <%= text_field_tag :email, params[:email], class: "form-control", placeholder: "Email" %>
-                        </div>
-                        <div class="form-group">
-                            <%= password_field_tag :password, "", class: "form-control", placeholder: "Password" %>
-                        </div>
-              
-                        <%= submit_tag "Log in", class: "btn btn-default" %>            
-
-                        <a href="/users/new">Sign Up</a>
-
-                    <% end %>
                   <% end %>
                   </form>
               </div>
