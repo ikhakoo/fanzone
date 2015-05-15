@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
 	def index
 	  @commentable = find_commentable
 	  @comments = @commentable.comments
+	  @user = User.find(params[:user_id])
 	end
 
 	def create
