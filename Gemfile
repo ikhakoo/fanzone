@@ -46,17 +46,17 @@ gem 'faker'
 
 # Use slim instead of erb
 gem 'slim'
+gem 'feedjira'
 
 group :development do
   gem 'bullet'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'byebug'
-  gem 'pry'
+  gem 'pry-rails'
   gem 'quiet_assets'
   gem 'terminal-notifier-guard'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  #gem 'spring'
   
 end
 

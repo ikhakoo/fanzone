@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  espn_id: MyString
+  published: 2015-05-14 14:25:04
+  title: MyString
+  url: MyString
+
+two:
+  espn_id: MyString
+  published: 2015-05-14 14:25:04
+  title: MyString
+  url: MyString
