@@ -1,0 +1,7 @@
+<%= @entries.order(:published).each do |entry| %>
+	<div class="well">
+		<strong><%= entry.title %></strong> - <%= entry.published.localtime.strftime("%m/%d/%Y %I:%M %p") %> 
+		<br>
+		<%= link_to entry.url %>
+	</div>
+<% end %>

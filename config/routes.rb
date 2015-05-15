@@ -7,13 +7,10 @@ Rails.application.routes.draw do
     end
   end
   resources :sessions,      only: [:new, :create, :destroy]
-  resources :tweets,        only: [:index, :create, :destroy] do
-    resources :comments,    only: [:new, :create]
-  end
-  resources :comments,      only: [:new, :create]
+  resources :tweets,        only: [:index, :create, :destroy], :has_many => :comments 
   resources :relationships, only: [:create, :destroy]
-  resources :news,          only: [:index]
-  resources :videos,        only: [:index, :new, :create]
+  resources :entries,       only: [:index], :has_many => :comments
+  resources :videos,        only: [:index, :new, :create], :has_many => :comments
 
   get    'signup'   => 'users#new'
   get    'signin'   => 'sessions#new'

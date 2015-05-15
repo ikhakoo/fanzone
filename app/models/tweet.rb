@@ -7,7 +7,7 @@ class Tweet < ActiveRecord::Base
   validates :content, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
 
-  has_many :comments
+  has_many :comments, :as => :commentable
 
   has_many :taggings
 	has_many :tags, through: :taggings
