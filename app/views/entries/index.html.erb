@@ -1,6 +1,11 @@
 <% @entries.order(:published).reverse_each do |entry| %>
 	<div class="well">
 		<strong><%= entry.title %></strong> - <%= entry.published.localtime.strftime("%m/%d/%Y %I:%M %p") %> 
+		<% if entry.description.nil? %>
+		<% else %>
+		<br> 
+		<%= entry.description %>
+		<% end %>
 		<br>
 		<%= link_to entry.url %>
 	</div>

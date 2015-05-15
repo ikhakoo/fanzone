@@ -10,8 +10,8 @@
 <%= form_for Comment.new do |f| %>
   <ol class="formList">
     <li>
-    <%= f.hidden_field :commentable_id, value: commentable.id %>
-    <%= f.hidden_field :commentable_type, value: commentable.class.name %>
+      <%= f.hidden_field :commentable_id, value: commentable.id %>
+      <%= f.hidden_field :commentable_type, value: commentable.class.name %>
 
       <%= f.label :content %>
       <%= f.text_area :content, :rows => 2 %>

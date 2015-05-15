@@ -20,13 +20,23 @@ feed2.entries.each do |entry|
   e.save!
 end
 
+url3 = "http://sports.yahoo.com/nba/rss.xml"
+feed3 = Feedjira::Feed.fetch_and_parse(url3)
+feed3.entries.each do |entry|
+  e = Entry.find_or_create_by(espn_id: entry.id)
+  e.published = entry.published
+  e.title = entry.title
+  e.url = entry.url
+  e.save!
+end
+
 binding.pry
 puts "yolo"
 
 # def seed_users_and_microposts
 #   99.times do |n|
 #     name  = Faker::Name.name
-#     email = "example-#{n+1}@faker-game.com"
+#     email = "example-#{n+1}@faker.com"
 #     password = "password"
 #     slug = Faker::Internet.slug
 #     User.create!(name: name,
