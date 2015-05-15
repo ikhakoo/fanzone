@@ -1,15 +1,18 @@
 <h1>Comments</h1>
 
 <ul id="comments">
-  <% @comments.each do |comment| %>
+  <% comments.each do |comment| %>
     <li><%= comment.content %></li>
   <% end %>
 </ul>
 
 <h2>New Comment</h2>
-<% form_for [@commentable, Comment.new] do |f| %>
+<%= form_for Comment.new do |f| %>
   <ol class="formList">
     <li>
+    <%= f.hidden_field :commentable_id, value: commentable.id %>
+    <%= f.hidden_field :commentable_type, value: commentable.class.name %>
+
       <%= f.label :content %>
       <%= f.text_area :content, :rows => 2 %>
     </li>
