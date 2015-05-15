@@ -48,6 +48,8 @@ gem 'faker'
 gem 'slim'
 gem 'feedjira'
 
+gem 'whenever', :require => false
+
 group :development do
   gem 'bullet'
   gem 'better_errors'
