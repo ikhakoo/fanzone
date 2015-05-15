@@ -9,6 +9,18 @@ feed.entries.each do |entry|
   e.save!
 end
 
+# url = "http://www.nba.com/topvideo/rss.xml"
+# feed2 = Feedjira::Feed.fetch_and_parse(url)
+
+# feed2.videos.each do |video|
+#   v = Entry.find_or_create_by(url: video.id)
+#   v.published = video.published
+#   v.description = video.description
+#   v.title = video.title
+#   v.url = video.url
+#   v.save!
+# end
+
 
 binding.pry
 
