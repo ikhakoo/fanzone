@@ -1,13 +1,18 @@
 <% @entries.order(:published).reverse_each do |entry| %>
 	<div class="well">
-		<strong><%= entry.title %></strong> - <%= entry.published.localtime.strftime("%m/%d/%Y %I:%M %p") %> 
+		<strong><%= link_to entry.title, entry.url %></strong> - <%= entry.published.localtime.strftime("%m/%d/%Y %I:%M %p") %> 
+		<% if entry.url.include?("espn.go.com") %>
+			-via ESPN
+		<% elsif entry.url.include?("yahoo.com") %>
+			-via Yahoo! Sports
+		<% elsif entry.url.include?("nba.com") %>
+			-via NBA.com
+			<% end %>
 		<% if entry.description.nil? %>
 		<% else %>
 		<br> 
 		<%= entry.description %>
 		<% end %>
-		<br>
-		<%= link_to entry.url, entry.url %>
 	</div>
 	<%= render 'comments/form', comments: @comments, commentable: entry %>
 <% end %>
