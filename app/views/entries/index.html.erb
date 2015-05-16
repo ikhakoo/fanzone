@@ -7,7 +7,7 @@
 		<%= entry.description %>
 		<% end %>
 		<br>
-		<%= link_to entry.url %>
+		<%= link_to entry.url, entry.url %>
 	</div>
 	<%= render 'comments/form', comments: @comments, commentable: entry %>
 <% end %>
