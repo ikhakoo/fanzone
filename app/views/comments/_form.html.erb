@@ -2,7 +2,7 @@
 
 <ul id="comments">
   <% comments.each do |comment| %>
-    <li><%= comment.content %></li>
+    <li><%= link_to comment.user.slug, "users/#{comment.user.slug}" %> <%= comment.content %></li>
   <% end %>
 </ul>
 

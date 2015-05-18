@@ -6,7 +6,7 @@
 		<% elsif entry.url.include?("yahoo.com") %>
 			-via Yahoo! Sports
 		<% elsif entry.url.include?("nba.com") %>
-			-via NBA.com
+			-via NBA.com (Video)
 			<% end %>
 		<% if entry.description.nil? %>
 		<% else %>
@@ -14,5 +14,7 @@
 		<%= entry.description %>
 		<% end %>
 	</div>
-	<%= render 'comments/form', comments: @comments, commentable: entry %>
+	<div class="well">
+		<%= render 'comments/form', comments: @comments, commentable: entry %>
+	</div>
 <% end %>
