@@ -22,7 +22,11 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'ancestry'
+gem 'yt', '~> 0.13.7'
+gem 'rails-observers'
+gem 'omniauth-google-oauth2'
+gem 'active_type', '0.3.1'
+gem 'autoprefixer-rails'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt'

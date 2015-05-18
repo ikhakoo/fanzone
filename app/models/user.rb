@@ -55,9 +55,21 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  class << self
+    def from_omniauth(auth)
+      user = User.find_or_initialize_by(uid: auth['uid'])
+      user.name = auth['info']['name']
+      user.slug = auth['info']['name']
+      user.token = auth['credentials']['token']
+      user.save!
+      user
+    end
+  end
+
   private
 
     def create_remember_token
       self.remember_token = User.hash(User.new_remember_token)
     end
+
 end

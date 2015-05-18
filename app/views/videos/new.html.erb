@@ -1,21 +1,15 @@
-<h1>Add a Video</h1>
 <div class="container">
-<%= link_to "Back to Videos", videos_url %>
-<%= form_for @video do |f| %>
-  <p>
-    <%= f.label :source %><br>
-    <%= f.text_field :source %>
-  </p>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </p>
-  <p>
-    <%= f.submit "Save" %>
-  </p>
-<% end %>
+  <h1>New video</h1>
+ 
+  <%= form_for @video do |f| %>
+    <%= render 'shared/error_messages', object: @video %>
+ 
+    <div class="form-group">
+      <%= f.label :link %>
+      <%= f.text_field :link, class: 'form-control', required: true %>
+      <span class="help-block">A link to the video on YouTube.</span>
+    </div>
+ 
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
 </div>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :entries,       only: [:index]
   resources :videos,        only: [:index, :new, :create]
+  resources :video_uploads, only: [:new, :create]
   resources :comments,      only: [:new, :create]
 
   get    'signup'   => 'users#new'

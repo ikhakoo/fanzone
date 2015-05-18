@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518014559) do
+ActiveRecord::Schema.define(version: 20150518060047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,7 +86,22 @@ ActiveRecord::Schema.define(version: 20150518014559) do
     t.string   "slug"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "uid"
+    t.string   "token"
   end
+
+  create_table "videos", force: :cascade do |t|
+    t.string   "link"
+    t.string   "title"
+    t.datetime "published_at"
+    t.integer  "likes"
+    t.integer  "dislikes"
+    t.string   "uid"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "videos", ["uid"], name: "index_videos_on_uid", using: :btree
 
   add_foreign_key "taggings", "tags"
   add_foreign_key "taggings", "tweets"
