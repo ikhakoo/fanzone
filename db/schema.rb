@@ -16,17 +16,6 @@ ActiveRecord::Schema.define(version: 20150518060047) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "authentications", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "authentications", ["provider", "uid"], name: "index_authentications_on_provider_and_uid", using: :btree
-  add_index "authentications", ["user_id"], name: "index_authentications_on_user_id", using: :btree
-
   create_table "comments", force: :cascade do |t|
     t.text     "content"
     t.integer  "commentable_id"
@@ -51,24 +40,6 @@ ActiveRecord::Schema.define(version: 20150518060047) do
     t.integer  "followed_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "taggings", force: :cascade do |t|
-    t.integer  "tweet_id"
-    t.integer  "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
-  add_index "taggings", ["tweet_id"], name: "index_taggings_on_tweet_id", using: :btree
-
-  create_table "tags", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "tweet_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "tweets", force: :cascade do |t|
@@ -103,6 +74,4 @@ ActiveRecord::Schema.define(version: 20150518060047) do
 
   add_index "videos", ["uid"], name: "index_videos_on_uid", using: :btree
 
-  add_foreign_key "taggings", "tags"
-  add_foreign_key "taggings", "tweets"
 end
