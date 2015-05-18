@@ -7,7 +7,11 @@ feed.entries.each do |entry|
   e.title = entry.title
   e.url = entry.url
   e.save!
+  x = ["|","/","-","+","#"]
+  print x.shuffle.sample
 end
+
+puts "Finished Seeding ESPN"
 
 url2 = "http://www.nba.com/topvideo/rss.xml"
 feed2 = Feedjira::Feed.fetch_and_parse(url2)
@@ -18,7 +22,11 @@ feed2.entries.each do |entry|
   e.title = entry.title
   e.url = entry.url
   e.save!
+  x = ["|","/","-","+","#"]
+  print x.shuffle.sample
 end
+
+puts "Finished Seeding NBA.com"
 
 url3 = "http://sports.yahoo.com/nba/rss.xml"
 feed3 = Feedjira::Feed.fetch_and_parse(url3)
@@ -28,7 +36,11 @@ feed3.entries.each do |entry|
   e.title = entry.title
   e.url = entry.url
   e.save!
+  x = ["|","/","-","+","#"]
+  print x.shuffle.sample
 end
+
+puts "Finished Seeding Yahoo.com"
 
 binding.pry
 puts "yolo"
