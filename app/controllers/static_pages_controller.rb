@@ -9,4 +9,8 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+
+  def social
+  end
+  
 end
