@@ -43,7 +43,7 @@ end
 puts "Finished Seeding Yahoo.com"
 
 # binding.pry
-# puts "yolo"
+puts "yolo"
 
 def seed_users_and_microposts
   99.times do |n|
@@ -85,5 +85,5 @@ def seed_users_and_microposts
   puts "Completed Seed"
 end
 
-seed_users_and_microposts
+# seed_users_and_microposts
 
