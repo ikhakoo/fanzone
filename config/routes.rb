@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   get    'signin'   => 'sessions#new'
   delete 'signout'  => 'sessions#destroy', as: :logout
   get    'about'    => 'static_pages#about'
-  get 'tags/:tag', to: 'tweets#index', as: "tag"
+  get    'social'   => 'static_pages#social'
+
   get '/auth/:provider/callback', to: 'sessions#create'
 
   match '*path' => 'application#routing_error', via: :all
