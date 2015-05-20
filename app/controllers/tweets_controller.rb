@@ -31,7 +31,7 @@ class TweetsController < ApplicationController
   private
 
     def tweet_params
-      params.require(:tweet).permit(:content, :all_tags, :tweet_id)
+      params.require(:tweet).permit(:content, :tweet_id)
     end
 
     def correct_user

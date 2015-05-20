@@ -11,6 +11,8 @@ class StaticPagesController < ApplicationController
   end
 
   def social
+    @tweet = Tweet.new
+    @user = current_user
   end
   
 end
