@@ -11,7 +11,8 @@ class StaticPagesController < ApplicationController
   end
 
   def social
-    @tweet = Tweet.new
+    @tweet = current_user.tweets.build
+    @feed_items = Tweet.all.paginate(page: params[:page])
     @user = current_user
   end
   
