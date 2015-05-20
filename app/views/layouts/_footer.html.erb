@@ -12,14 +12,16 @@
       </div>
       <div class="modal-body">
           <form class="form col-md-12 center-block">
-            <div class="form-group">
-              <input type="text" class="form-control input-lg" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control input-lg" placeholder="Password">
-            </div>
-            <div class="form-group">
-              <button class="btn btn-primary btn-lg btn-block">Sign In</button>
+            <%= form_tag "/sessions", method: "POST", class: "navbar-form navbar-right" do |f| %>
+                        <div class="form-group">
+                            <%= text_field_tag :email, params[:email], class: "form-control", placeholder: "Email" %>
+                        </div>
+                        <div class="form-group">
+                            <%= password_field_tag :password, "", class: "form-control", placeholder: "Password" %>
+                        </div>
+              
+                        <%= submit_tag "Log in", class: "btn btn-default" %> 
+                        <% end %>
               <span class="pull-right"><a href="#">Register</a></span><span><a href="#">Need help?</a></span>
             </div>
           </form>
