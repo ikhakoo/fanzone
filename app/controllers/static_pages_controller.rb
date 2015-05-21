@@ -12,8 +12,10 @@ class StaticPagesController < ApplicationController
 
   def social
     @tweet = current_user.tweets.build
-    @feed_items = Tweet.all.paginate(page: params[:page])
+    @feed_items = Tweet.all
     @user = current_user
+    @videos = Video.all
+    @entries = Entry.all
   end
   
 end
