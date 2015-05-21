@@ -28,6 +28,8 @@ gem 'omniauth-google-oauth2'
 gem 'active_type', '0.3.1'
 gem 'autoprefixer-rails'
 
+gem 'thin'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 # Use unicorn as the app server
