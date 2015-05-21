@@ -42,7 +42,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Latest News</div>
                 <div class="panel-body"> 
-                <% @entries.limit(5).each do |entry| %>
+                <% @entries.order(:published).last(5).reverse_each do |entry| %>
                   <div class="well">
                     <strong><%= link_to entry.title, entry.url %></strong> - <%= entry.published.localtime.strftime("%m/%d/%Y %I:%M %p") %> 
                     <% if entry.url.include?("espn.go.com") %>
