@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
                                    class_name: 'Relationship',
                                    dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
-  has_many :comments
+  has_many :messages
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
