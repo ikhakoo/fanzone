@@ -1,2 +1,2 @@
-$("#chat-container").html("<%= escape_javascript(render(:partial => 'message')) %>");
+$("#chat").append("<%= escape_javascript(render(:partial => 'message', locals: {message: @message})) %>");
 $("#new_message")[0].reset();
