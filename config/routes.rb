@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :videos,        only: [:index, :new, :create]
   resources :video_uploads, only: [:new, :create]
   resources :comments,      only: [:new, :create]
+  resources :messages,      only: [:new, :create, :index]
 
   get    'signup'   => 'users#new'
   get    'signin'   => 'sessions#new'
