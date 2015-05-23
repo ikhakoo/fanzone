@@ -4,12 +4,92 @@
 <br>
 <br>
 <br>
-<%= @entries.each do |entry| %>
-	<%= entry.title %>
-<% end %>
-<%= @videos.each do |video| %>
-	<%= video.title %>
-<% end %>
-<%= @tweets.each do |tweet| %>
-	<%= tweet.content %>
-<% end %>
+
+<div class="col-sm-9" contenteditable="false" style="">
+    <div class="panel panel-default">
+        <div class="panel-heading">News</div>
+        <div class="panel-body"> 
+        <% @entries.order(:published).reverse_each do |entry| %>
+          <div class="well">
+            <strong><%= link_to entry.title, entry.url %></strong> - <%= entry.published.localtime.strftime("%m/%d/%Y %I:%M %p") %> 
+            <% if entry.url.include?("espn.go.com") %>
+              -via ESPN
+            <% elsif entry.url.include?("yahoo.com") %>
+              -via Yahoo! Sports
+            <% elsif entry.url.include?("nba.com") %>
+              -via NBA.com (Video)
+              <% end %>
+            <% if entry.description.nil? %>
+            <% else %>
+            <br> 
+            <%= entry.description %>
+            <% end %>
+          </div>
+          
+        <% end %>
+
+        </div>
+    </div>
+<div class="panel panel-default target">
+    <div class="panel-heading" contenteditable="false">Videos</div>
+    <div class="panel-body">
+      <div class="row">
+        <div id="player-wrapper"></div>
+					<% @videos.in_groups_of(3) do |group| %>
+					  <div class="row">
+					    <% group.each do |video| %>
+					      <% if video %>
+					        <div class="col-md-4">
+					          <div class="yt_video thumbnail">
+					            <%= link_to image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
+					                                  class: 'img-rounded'),
+					                        "https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
+					            <div class="caption">
+					              <h5><%= video.title %></h5>
+					              <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
+					              <p>
+					                <span class="glyphicon glyphicon glyphicon-thumbs-up"></span> <%= video.likes %>
+					                <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> <%= video.dislikes %>
+					              </p>
+					            </div>
+					          </div>
+					        </div>
+					      <% end %>
+					    <% end %>
+					  </div>
+					<% end %>          
+          </div>
+      </div>
+  </div>
+<div class="panel panel-default">
+  <div class="panel-heading">Posts</div>
+  <div class="panel-body"> 
+
+  <% @tweets.each do |tweet| %>
+
+  <div class="tweet clearfix" id="<%= tweet.id %>">
+		<div class="gravatar">
+			<%= image_tag tweet.user.avatar.url(:thumb) %>
+		</div>
+			<div class="content">
+				<div class="user">
+					<%= link_to tweet.user.name, tweet.user %>
+				</div>
+				<div class="tweet-content">
+					<%= wrap(tweet.content) %>
+				</div>
+				<div class="tweet-footer">
+					<Posted>
+					  <%= time_ago_in_words(tweet.created_at) %> ago.
+					</Posted>
+				  <% if current_user?(tweet.user) %>
+				    <div class="tweet-actions">
+				      <%= link_to "delete", tweet, method: :delete, data: { confirm: "You sure?" }, 
+				      title: tweet.content %>
+				    </div>
+				  <% end %>
+		  		</div>
+				</div>
+			</div>
+		<% end %>
+</div>
