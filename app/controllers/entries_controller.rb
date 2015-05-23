@@ -1,7 +1,7 @@
 class EntriesController < ApplicationController
 
 	def index
-		@entries = Entry.all
+		@entries = Entry.all.paginate(page: params[:page])
 		@comments = Comment.all
 		@commentable = find_commentable
 	end
