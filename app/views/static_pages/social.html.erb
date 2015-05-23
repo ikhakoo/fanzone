@@ -105,8 +105,10 @@
 
                 <% @feed_items.limit(5).each do |feed_item| %>
 
-                <li class="tweet clearfix" id="<%= feed_item.id %>">
-  <%= image_tag feed_item.user.avatar.url(:thumb) %>
+                <div class="tweet clearfix" id="<%= feed_item.id %>">
+  <div class="gravatar">
+    <%= image_tag feed_item.user.avatar.url(:thumb) %>
+    </div>
   <div class="content">
     <div class="user">
       <%= link_to feed_item.user.name, feed_item.user %>
@@ -126,7 +128,7 @@
     <% end %>
     </div>
   </div>
-</li>
+</div>
 
 <% end %>
 
