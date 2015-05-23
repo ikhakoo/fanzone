@@ -48,7 +48,7 @@ puts "yolo"
 def seed_users_and_microposts
   99.times do |n|
     name  = Faker::Name.name
-    email = "example-#{n+1}@faker.com"
+    email = "fake-#{n+1}@faker.com"
     password = "password"
     slug = Faker::Internet.slug
     avatar = Faker::Avatar.image("my-own-slug", "100x100", "jpg")
@@ -67,7 +67,7 @@ def seed_users_and_microposts
   
   # Microposts
   users = User.order(:created_at).take(6)
-  50.times do
+  150.times do
     content = Faker::Lorem.sentence(5)
     users.each { |user| user.tweets.create!(content: content) }
     x = ["|","/","-","+","#"]
