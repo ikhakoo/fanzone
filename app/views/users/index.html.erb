@@ -11,8 +11,13 @@
 <ul class="users">
   <% @users.each do |user| %>
     <li>
-      <%= gravatar_for user, size: 50 %>
+    	<div class="gratavar">
+      <%= image_tag user.avatar.url(:thumb) %>
+      </div>
       <%= link_to user.name, user %>
     </li>
   <% end %>
+  <div class="paginate">
+	<%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+</div>
 </ul>
