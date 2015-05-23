@@ -12,7 +12,7 @@
       </div>
       <div class="modal-body">
           <form class="form col-md-12 center-block">
-            <%= form_tag "/sessions", method: "POST", class: "navbar-form navbar-right" do |f| %>
+            <%= form_tag sessions_path, method: "POST", class: "navbar-form navbar-right" do |f| %>
                         <div class="form-group">
                             <%= text_field_tag :email, params[:email], class: "form-control", placeholder: "Email" %>
                         </div>
@@ -22,7 +22,7 @@
               
                         <%= submit_tag "Log in", class: "btn btn-default" %> 
                         <% end %>
-              <span class="pull-right"><a href="#">Register</a></span><span><a href="#">Need help?</a></span>
+              <span class="pull-right"><a href="/users/new">Register</a></span><span><a href="#">Need help?</a></span>
             </div>
           </form>
       </div>
