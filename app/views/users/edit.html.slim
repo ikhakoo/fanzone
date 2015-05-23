@@ -1,3 +1,8 @@
+<br>
+<br>
+<br>
+<br>
+
 - provide(:title, 'Edit user')
 .row
   div.col-md-12.one-col
@@ -21,6 +26,10 @@
       .form-group
         = f.label :password_confirmation, class: 'control-label'
         = f.password_field :password_confirmation, class: 'form-control'
+
+      .form-group
+        = f.label :avatar, class: 'control-label'
+        = f.file_field :avatar
 
       .actions
         = f.submit "Save changes", class: "btn btn-large btn-primary"

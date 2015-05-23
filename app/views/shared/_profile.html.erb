@@ -1,5 +1,5 @@
 <div class="profile clearfix">
-	<%= link_to gravatar_for(@user, size: 52), @user %>
+	<%= image_tag @user.avatar.url(:thumb) %>
 		<div>
 			<%= link_to "@", @user %><%= link_to @user.slug, @user %>
 		<div>

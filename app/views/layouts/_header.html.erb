@@ -19,11 +19,13 @@
     </div>  
  </div> 
 </nav>
+<% if signed_in? %>
 <div class="navbar navbar-default" id="subnav">
 <div class="col-md-12">
     <div class="navbar-header">
       
       <a href="#" style="margin-left:15px;" data-toggle="dropdown"><%= link_to root_path, class: 'navbar-btn btn btn-default btn-plus dropdown-toggle', :data => {:toggle=>"dropdown"} do %>
+     
           <i class="glyphicon glyphicon-home" style="color:#dd1111;"></i> Home
           <small><i class="glyphicon glyphicon-chevron-down"></i></small>
           <% end %> </a>
@@ -39,6 +41,7 @@
           <% end %>
       </ul>
       
+      <% end %>
       
       
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse2">
