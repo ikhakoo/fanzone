@@ -57,7 +57,11 @@
     <div class="collapse navbar-collapse" id="navbar-collapse2">
       <ul class="nav navbar-nav navbar-right">
          <li class="active"><a href="/social">Social</a></li>
+         <% if signed_in? %>
+         <li><%= link_to "Log out", session_path("current"), :method => :delete %></li>
+         <% else %>
          <li><a href="#loginModal" role="button" data-toggle="modal">Login</a></li>
+         <% end %>
          <li><a href="#aboutModal" role="button" data-toggle="modal">About</a></li>
        </ul>
     </div>  
