@@ -1,5 +1,5 @@
 <li class="tweet clearfix" id="<%= feed_item.id %>">
-	<%= link_to gravatar_for(feed_item.user), feed_item.user %>
+	<%= image_tag feed_item.user.avatar.url(:thumb) %>
 	<div class="content">
 		<div class="user">
 			<%= link_to feed_item.user.name, feed_item.user %>

@@ -51,6 +51,7 @@ def seed_users_and_microposts
     email = "example-#{n+1}@faker.com"
     password = "password"
     slug = Faker::Internet.slug
+    avatar = Faker::Avatar.image
     User.create!(name: name,
   	      email: email,
   	      password:              password,
@@ -85,5 +86,5 @@ def seed_users_and_microposts
   puts "Completed Seed"
 end
 
-# seed_users_and_microposts
+seed_users_and_microposts
 

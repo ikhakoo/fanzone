@@ -12,7 +12,7 @@
           <%= button_to('Edit Profile', edit_user_path(current_user.slug), :class => 'btn btn-info') %>
 <br>
         </div>
-      <div class="col-sm-2"><%= image_tag @user.avatar.url(:thumb) %>
+      <div class="col-sm-2"><%= image_tag @user.avatar.url(:medium) %>
 
         </div>
     </div>
