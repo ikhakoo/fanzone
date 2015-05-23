@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   delete 'signout'  => 'sessions#destroy', as: :logout
   get    'about'    => 'static_pages#about'
   get    'social'   => 'static_pages#social'
+  get    'search'   => 'search#index'
 
   get '/auth/:provider/callback', to: 'sessions#create'
 

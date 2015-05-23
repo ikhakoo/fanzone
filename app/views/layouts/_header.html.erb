@@ -17,7 +17,11 @@
           </div>
         </div>
       </form>
-    </div>  
+    </div>
+    <%= form_tag search_path, controller: 'search', method: :get, authentication: false, id: 'search-form' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+<% end %>  
     <% end %>
  </div> 
 </nav>
