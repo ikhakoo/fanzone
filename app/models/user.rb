@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password, if: -> (m) { m.password.present? }
   validates :password, length: { minimum: 6 }
 
-  has_attached_file :avatar, :styles => { :medium => "100x100>", :thumb => "20x20>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :avatar, :styles => { :medium => "100x100>", :thumb => "50x50>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   def to_param

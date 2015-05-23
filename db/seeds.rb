@@ -51,12 +51,13 @@ def seed_users_and_microposts
     email = "example-#{n+1}@faker.com"
     password = "password"
     slug = Faker::Internet.slug
-    avatar = Faker::Avatar.image
+    avatar = Faker::Avatar.image("my-own-slug", "100x100", "jpg")
     User.create!(name: name,
   	      email: email,
   	      password:              password,
   	      password_confirmation: password,
-  	      slug: slug
+  	      slug: slug,
+          avatar: avatar
   	     )
     x = ["|","/","-","+","#"]
     print x.shuffle.sample

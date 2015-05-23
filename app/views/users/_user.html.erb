@@ -1,4 +1,4 @@
 <li class="tweet clearfix">
-	<%= gravatar_for user, size: 52 %>
+	<%= image_tag user.avatar.url(:thumb) %>
 	<%= link_to user.name, user %>
 </li>
