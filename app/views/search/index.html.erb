@@ -27,6 +27,7 @@
           </div>
           
         <% end %>
+        <%= will_paginate @entries, renderer: BootstrapPagination::Rails %>
 
         </div>
     </div>
@@ -57,7 +58,8 @@
 					      <% end %>
 					    <% end %>
 					  </div>
-					<% end %>          
+					<% end %> 
+					<%= will_paginate @videos, renderer: BootstrapPagination::Rails %>         
           </div>
       </div>
   </div>
@@ -92,4 +94,5 @@
 				</div>
 			</div>
 		<% end %>
+		<%= will_paginate @tweets, renderer: BootstrapPagination::Rails %>
 </div>
