@@ -87,5 +87,5 @@ def seed_users_and_microposts
   puts "Completed Seed"
 end
 
-seed_users_and_microposts
+# seed_users_and_microposts
 
