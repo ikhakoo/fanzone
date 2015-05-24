@@ -16,6 +16,29 @@ namespace :pull do
       e.url = entry.url
       e.save!
     end
+
+    url2 = "http://www.nba.com/topvideo/rss.xml"
+    feed2 = Feedjira::Feed.fetch_and_parse(url2)
+
+    feed2.entries.each do |entry|
+      e = Entry.find_or_create_by(espn_id: entry.id)
+      e.published = entry.published
+      e.description = entry.summary
+      e.title = entry.title
+      e.url = entry.url
+      e.save!
+    end
+
+    url3 = "http://sports.yahoo.com/nba/rss.xml"
+    feed3 = Feedjira::Feed.fetch_and_parse(url3)
+    
+    feed3.entries.each do |entry|
+      e = Entry.find_or_create_by(espn_id: entry.id)
+      e.published = entry.published
+      e.title = entry.title
+      e.url = entry.url
+      e.save!
+    end
   end
   # url = "http://www.nba.com/topvideo/rss.xml"
   # feed = Feedjira::Feed.fetch_and_parse(url)
