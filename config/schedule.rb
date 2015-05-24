@@ -1,3 +1,3 @@
 every :hour do
-  rake 'pull:rss'
+  rake 'pull:feedme'
 end
