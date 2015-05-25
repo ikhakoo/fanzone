@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   def index
     @messages = Message.all
+    # @user = chat_user
   end
 
   def create
@@ -24,4 +25,9 @@ class MessagesController < ApplicationController
   def message_params
     params.require(:message).permit(:content, :user_id)
   end
+
+  # def chat_user
+  #   @user = User.find(params[:user_id])
+  # end
+
 end
